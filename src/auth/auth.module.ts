@@ -9,6 +9,7 @@ import { User } from './user.entity';
 import { UsersController } from './users.controller';
 import { UserResolver } from './user.resolver';
 import { UserService } from './user.service';
+import { UserDoesNotExistConstraint } from '../validation/user-does-not-exist.constraint';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { UserService } from './user.service';
     AuthService,
     UserResolver,
     UserService,
+    UserDoesNotExistConstraint,
   ],
   controllers: [AuthController, UsersController],
 })
