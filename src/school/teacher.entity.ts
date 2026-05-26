@@ -4,10 +4,9 @@ import { Field, InputType, ObjectType } from '@nestjs/graphql';
 
 @Entity()
 @ObjectType()
-@InputType('TeacherInput')
 export class Teacher {
   @PrimaryGeneratedColumn()
-  @Field({ nullable: true })
+  @Field()
   id: number;
 
   @Column()
@@ -15,6 +14,6 @@ export class Teacher {
   name: string;
 
   @ManyToMany(() => Subject, (subject) => subject.teachers)
-  @Field(() => [Subject], { nullable: true })
+  @Field(() => [Subject])
   subjects: Subject[];
 }
